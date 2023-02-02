@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+import Root from '../components/root';
+import Home from '../features/home/Home';
 import './App.css'
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={ <Root/> }>
+      <Route index element={ <Home/> }/>
+    </Route>
+  )
+)
 
 const App = () => {
   return (
-    <div>
-      Minimalist Reddit
-    </div>
+    <RouterProvider router={ router } />
   )
 }
 
-export default App
+export default App;

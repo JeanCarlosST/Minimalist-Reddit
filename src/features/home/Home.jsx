@@ -1,3 +1,11 @@
+import React from "react";
+
 const Home = () => {
-    return <></>
+    return (
+        <div>
+            Minimalist Reddit
+        </div>
+    )
 }
+
+export default Home;
