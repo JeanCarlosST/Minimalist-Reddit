@@ -1,0 +1,3 @@
+const PostsList = () => {
+    return <></>
+}
