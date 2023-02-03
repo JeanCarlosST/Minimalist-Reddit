@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import Root from '../components/root';
-import Home from '../features/home/Home';
+import Home from '../features/Home/Home';
 import './App.css'
 
 const router = createBrowserRouter(

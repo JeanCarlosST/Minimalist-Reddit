@@ -1,6 +1,7 @@
 import React from "react"
-import PostItem from "./postItem";
-import { useGetMainContentQuery } from "../services/redditApi";
+import PostItem from "../PostItem/PostItem";
+import { useGetMainContentQuery } from "../../services/redditApi";
+import styles from "./PostList.module.css"
 
 const PostsList = () => {
     const { data, isFetching, error } = useGetMainContentQuery();
@@ -14,7 +15,7 @@ const PostsList = () => {
     const posts = data.data.children;
 
     return (
-        <div className="postList">
+        <div className={styles.postList}>
             {posts.map(post => <PostItem post={post} key={post.data.id}/>)}
         </div>
     )

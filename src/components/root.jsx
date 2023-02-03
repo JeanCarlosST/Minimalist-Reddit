@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from './navbar'
+import Navbar from './Navbar/Navbar'
 import {Outlet, useSearchParams} from 'react-router-dom'
 import { getAccessToken } from '../services/redditApi';
 

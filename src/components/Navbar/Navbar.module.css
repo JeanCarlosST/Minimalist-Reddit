@@ -1,0 +1,47 @@
+
+.navbar {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 9px 15px -5px rgba(0,0,0,0.15);
+    padding: 8px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+  
+.homelink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+  
+.homelink img {
+    width: 40px;
+}
+  
+.homelink p {
+    margin: 0 5px;
+}
+  
+.homelink span {
+    color: var(--main-color);
+}
+  
+.loginButton {
+    background-color: var(--main-color);
+    color: white;
+    font-weight: 600;
+    padding: 5px 25px;
+    border: none;
+    border-radius: 25px;
+    transition: background-color 1s;
+}
+  
+.loginButton:hover {
+    cursor: pointer;
+    background-color: #600000;
+}  

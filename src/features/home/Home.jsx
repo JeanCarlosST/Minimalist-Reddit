@@ -1,10 +1,11 @@
 import React from "react";
-import PostsList from "../../components/postsList";
+import PostsList from "../../components/PostList/PostsList";
+import styles from "./Home.module.css"
 
 const Home = () => {
 
     return (
-        <div className="home">
+        <div className={styles.home}>
             <PostsList />
         </div>
     )
