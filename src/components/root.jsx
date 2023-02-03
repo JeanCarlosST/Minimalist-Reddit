@@ -1,8 +1,17 @@
 import React from 'react'
 import Navbar from './navbar'
-import {Outlet} from 'react-router-dom'
+import {Outlet, useSearchParams} from 'react-router-dom'
+import { getAccessToken } from '../services/redditAPI';
 
 const Root = () => {
+    const [params, setParams] = useSearchParams();
+
+    if(params.entries().length !== 0) {
+        const state = params.get("state");
+        const code = params.get("code");
+        getAccessToken(state, code);
+    }
+
     return (
         <>
             <Navbar />
