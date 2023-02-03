@@ -13,7 +13,7 @@ const SearchBar = () => {
                 ref={searchInputRef}
                 placeholder="Search"/>
             <button type="button" className="searchButton">
-                <FaSearch/>
+                <FaSearch />
             </button>
         </div>
     )

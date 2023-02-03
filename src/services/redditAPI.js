@@ -1,7 +1,9 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
+
 const clientID = "";
 const secret = "";
 const redirectUrl = `http://localhost:5173/`;
-const baseURL = "https://www.reddit.com/api/v1";
+const baseURL = "https://www.reddit.com";
 const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
 function generateString(length) {
@@ -19,7 +21,7 @@ export function authorizeUser() {
 
     localStorage.setItem("state", state);
 
-    const url = `${baseURL}/authorize?client_id=${clientID}&response_type=code&state=${state}&redirect_uri=${redirectUrl}&duration=temporary&scope=read identity`
+    const url = `${baseURL}/api/v1/authorize?client_id=${clientID}&response_type=code&state=${state}&redirect_uri=${redirectUrl}&duration=temporary&scope=read identity`
     
     window.location.assign(url);
 }
@@ -28,10 +30,10 @@ export function getAccessToken(state, code) {
     const savedState = localStorage.getItem("state");
     const accessToken = localStorage.getItem("accessToken");
 
-    if(!savedState || !state || !code)
+    if(!savedState || !state || !code || savedState !== state)
         return;
     
-    const url = `${baseURL}/access_token`;
+    const url = `${baseURL}/api/v1/access_token`;
     const credentials = window.btoa(`${clientID}:${secret}`);
 
     fetch(url, {
@@ -49,8 +51,6 @@ export function getAccessToken(state, code) {
         return response.json();
     })
     .then(jsonResponse => {
-        console.log(jsonResponse);
-
         const accessToken = jsonResponse['access_token'];
         const expiresIn = jsonResponse['expires_in'];
         const refreshToken = jsonResponse['refresh_token'];
@@ -69,3 +69,21 @@ export function getAccessToken(state, code) {
     })
 
 }
+
+const jsonExtension = ".json"
+
+export const redditApi = createApi({
+    reducerPath: "redditApi",
+    baseQuery: fetchBaseQuery({
+        baseUrl: baseURL,
+    }),
+    endpoints: (builder) => ({
+        getMainContent: builder.query({ query: () => jsonExtension}),
+        getFamousSubreddits: builder.query({ query: () => `subreddits/popular${jsonExtension}`})
+    })
+});
+
+export const {
+    useGetMainContentQuery,
+    useGetFamousSubredditsQuery
+} = redditApi;

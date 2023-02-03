@@ -4,6 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
+body, input {
     font-family: 'IBM Plex Sans', sans-serif;
 }

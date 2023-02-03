@@ -11,10 +11,10 @@ export const oauthRedditApi = createApi({
         }
     }),
     endpoints: (builder) => ({
-        getPopular: builder.query({ query: () => ""})
+        getMainContent: builder.query({ query: () => ""})
     })
 });
 
 export const {
-    useGetPopularQuery
+    useGetMainContentQuery
 } = oauthRedditApi;

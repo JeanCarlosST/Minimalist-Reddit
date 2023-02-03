@@ -1,12 +1,17 @@
 :root {
   --main-color: #800000;
+  --background-color: #f2f2f3;
+}
+
+body {
+  background-color: var(--background-color);
 }
 
 .navbar {
   background-color: white;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 9px 15px -5px rgba(0,0,0,0.15);
   padding: 8px;
 }
 
@@ -34,13 +39,21 @@
   display: flex;
   align-items: center;
   margin: 0 10px;
-  max-width: 1000px;
+  max-width: 500px;
+  flex-grow: 1;
 }
 
 .searchInput {
   padding: 8px;
-  border: 1px solid grey;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 20px;
+  width: 100%;
+  transition: border 0.3s;
+}
+
+.searchInput:focus {
+  border: 1.5px solid var(--main-color);
+  outline: none;
 }
 
 .searchButton {
@@ -67,4 +80,111 @@
 .loginButton:hover {
   cursor: pointer;
   background-color: #600000;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+}
+
+.postList {
+  width: 50%;
+}
+
+.postItem {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0px 12px 15px -5px rgba(0,0,0,0.15);
+  display: flex;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.postItem:visited, .postItem:any-link  {
+  color: inherit;
+}
+
+.voteButton {
+  background-color: transparent;
+  display: flex;
+  border: none;
+  font-size: 20px;
+}
+
+.voteButton:hover {
+  cursor: pointer;
+}
+
+.postMedia {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.postVotesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 7px 0 0;
+}
+
+.postVotesContainer p {
+  font-size: 12px;
+  margin: 3px 0;
+}
+
+.postContentContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.postContentContainer h4 {
+  margin-bottom: 10px;
+}
+
+.postContentHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.thumbnail {
+  object-fit: contain;
+  display: inline;
+}
+
+.externalLink {
+  font-size: 12px;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.postInfo {
+  font-size: 12px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.postInfo a {
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+}
+
+.timeElapsed {
+  color: rgba(0, 0, 0, 0.5)
+}
+
+.numComments {
+  display: flex;
+  align-items: center;
+}
+
+.numComments span {
+  margin-left: 5px;
 }
