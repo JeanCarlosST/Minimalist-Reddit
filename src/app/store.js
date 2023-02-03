@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { oauthRedditApi } from "../services/oauthRedditApi";
-import { redditApi } from "../services/redditAPI";
+import { redditApi } from "../services/redditApi";
 
 export const store = configureStore({
     reducer: {
