@@ -1,0 +1,40 @@
+.subreddit {
+    display: flex;
+    justify-content: center;
+}
+
+.subredditBanner {
+    background-color: white;
+    width: 100%;
+    box-shadow: 0px 9px 15px -5px rgba(0,0,0,0.15);
+    z-index: 0;
+    position: relative;
+}
+
+.subredditBanner > div {
+    display: flex;
+    padding: 15px 0;
+    width: calc(75% + 15px);
+    margin: auto;
+    align-items: center;
+}
+
+.subredditNames * {
+    margin: 0;
+}
+
+.subredditNames h1 {
+    font-size: 30px;
+}
+
+.subredditNames h2 {
+    font-size: 18px;
+    color: rgb(87, 87, 87);
+}
+.subredditIcon {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+    border: 3px solid var(--background-color)
+}

@@ -79,11 +79,15 @@ export const redditApi = createApi({
     }),
     endpoints: (builder) => ({
         getMainContent: builder.query({ query: () => jsonExtension}),
-        getPopularSubreddits: builder.query({ query: () => `subreddits/popular${jsonExtension}`})
+        getPopularSubreddits: builder.query({ query: () => `subreddits/popular${jsonExtension}`}),
+        getSubredditPosts: builder.query({ query: (subreddit) => `r/${subreddit}${jsonExtension}`}),
+        getSubredditAbout: builder.query({ query: (subreddit) => `r/${subreddit}/about${jsonExtension}`}),
     })
 });
 
 export const {
     useGetMainContentQuery,
-    useGetPopularSubredditsQuery
+    useGetPopularSubredditsQuery,
+    useGetSubredditPostsQuery,
+    useGetSubredditAboutQuery
 } = redditApi;

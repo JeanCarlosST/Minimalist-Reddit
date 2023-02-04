@@ -1,10 +1,26 @@
 import React from "react"
 import PostItem from "../PostItem/PostItem";
-import { useGetMainContentQuery } from "../../services/redditApi";
+import { useGetMainContentQuery, useGetSubredditPostsQuery } from "../../services/redditApi";
 import styles from "./PostList.module.css"
 
-const PostsList = () => {
-    const { data, isFetching, error } = useGetMainContentQuery();
+const PostsList = ({ subreddit, searchTerm }) => {
+    let data;
+    let isFetching;
+    let error;
+    let query;
+
+    if(subreddit) 
+        query = useGetSubredditPostsQuery(subreddit);
+    
+    else if(searchTerm) {
+
+    }
+    else 
+       query = useGetMainContentQuery();
+    
+    data = query.data;
+    isFetching = query.isFetching;
+    error = query.error
     
     if(isFetching)
         return <p>Loading...</p>
