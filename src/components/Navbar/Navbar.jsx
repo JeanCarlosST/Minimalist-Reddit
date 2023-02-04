@@ -14,6 +14,7 @@ const Navbar = () => {
                 <p>Minimalist <span>Reddit</span></p>
             </Link>
             <SearchBar/>
+            <div></div>
             <button type="button" className={styles.loginButton} value={"d"} onClick={authorizeUser}>
                 Log In
             </button>

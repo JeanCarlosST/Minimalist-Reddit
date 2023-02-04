@@ -39,6 +39,7 @@
     border: none;
     border-radius: 25px;
     transition: background-color 1s;
+    display: none;
 }
   
 .loginButton:hover {

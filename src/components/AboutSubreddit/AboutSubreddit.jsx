@@ -31,7 +31,7 @@ const AboutSubreddit = ({ name, isInPost }) => {
         image = DefaultIcon;
 
     const handleSubredditClick = () => {
-        navigate(`../${prefixedName}`, {replace: true});
+        navigate(`/${prefixedName}`);
     }
 
     return (

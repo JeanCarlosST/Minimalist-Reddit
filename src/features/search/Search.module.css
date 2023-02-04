@@ -1,0 +1,35 @@
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.filterButtons {
+    margin: 10px 0;
+}
+
+.filterButton {
+    padding: 10px 15px;
+    border-radius: 25px;
+    margin: 0 8px;
+    background-color: white;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.5s;
+}
+
+.filterButton:hover {
+    background-color: rgb(201, 201, 201);
+    cursor: pointer;
+}
+
+.selected {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.searchResults {
+    width: 50%;
+    margin-bottom: 10px;
+}

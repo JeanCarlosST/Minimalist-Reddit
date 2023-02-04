@@ -3,6 +3,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import Root from '../components/root';
 import Home from '../features/Home/Home';
 import Post from '../features/Post/Post';
+import Search from '../features/Search/Search';
 import Subreddit from '../features/Subreddit/Subreddit';
 import './App.css'
 
@@ -12,6 +13,7 @@ const router = createBrowserRouter(
         <Route index element={ <Home/> }/>
         <Route path='r/:name/' element={ <Subreddit/> }/>
         <Route path='r/:subreddit/comments/:postId' element={ <Post/> }/>
+        <Route path='search' element={ <Search/> }/>
     </Route>
   )
 )

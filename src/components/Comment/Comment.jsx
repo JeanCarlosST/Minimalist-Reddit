@@ -24,13 +24,15 @@ const Comment = ({ comment }) => {
             <div className={styles.commentBody}>
                 <div className={styles.verticalLine} />
                 <div className={styles.commentContent}>
-                    <ReactMarkdown children={body}/>
+                    <div className={styles.commentText}>
+                        <ReactMarkdown children={body}/>
+                    </div>
                     <div className={styles.commentVotesContainer}>
-                        <button type="button" className={`${styles.voteButton} ${styles.upVote}`}>
+                        <button type="button" className={`${styles.voteButton} ${styles.upVote}`} disabled>
                             <FaArrowAltCircleUp/>
                         </button>
                         <p className={styles.score}>{score}</p>
-                        <button type="button" className={`${styles.voteButton} ${styles.downVote}`}>
+                        <button type="button" className={`${styles.voteButton} ${styles.downVote}`} disabled>
                             <FaArrowAltCircleDown/>
                         </button>
                     </div>

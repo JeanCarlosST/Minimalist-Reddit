@@ -83,6 +83,13 @@ export const redditApi = createApi({
         getSubredditPosts: builder.query({ query: (subreddit) => `r/${subreddit}${jsonExtension}`}),
         getSubredditAbout: builder.query({ query: (subreddit) => `r/${subreddit}/about${jsonExtension}`}),
         getPostWithComments: builder.query({ query: ({ subreddit, postId }) => `r/${subreddit}/comments/${postId}${jsonExtension}`}),
+        getSearch: builder.query({ query: ({term, type}) => {
+            const searchQuery = new URLSearchParams({
+                q: term,
+                type: type
+            });
+            return `search${jsonExtension}?${searchQuery}`;
+        }}),
     })
 });
 
@@ -92,4 +99,5 @@ export const {
     useGetSubredditPostsQuery,
     useGetSubredditAboutQuery,
     useGetPostWithCommentsQuery,
+    useGetSearchQuery,
 } = redditApi;

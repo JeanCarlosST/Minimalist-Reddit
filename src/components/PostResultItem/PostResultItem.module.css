@@ -1,0 +1,57 @@
+.postResultItem {
+    padding: 5px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.postResultItem:hover {
+    cursor: pointer;
+    border: 1px solid rgb(140, 140, 140)
+}
+
+.subredditLink {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.subredditLink:hover {
+    color: inherit
+}
+
+.subredditLink:visited {
+    color: inherit
+}
+
+.itemHeader {
+    font-size: 12px;
+}
+
+.itemBody {
+    display: flex;
+    justify-content: space-between;
+    margin: 7px 0;
+}
+
+.itemBody img {
+    max-height: 90px;
+}
+
+.itemFooter {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.postedBy, .timeElapsed {
+    color: rgb(140, 140, 140);
+}
+
+.numComments {
+    display: flex;
+    align-items: center;
+}
+
+.numComments span {
+    margin-left: 5px;
+}

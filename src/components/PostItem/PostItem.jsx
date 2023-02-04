@@ -34,11 +34,11 @@ const PostItem = ({ post, comments, isCurrentPost }) => {
         <div className={styles.postItem}>
             <div className={styles.postSection}>
                 <div className={styles.postVotesContainer}>
-                    <button type="button" className={`${styles.voteButton} ${styles.upVote}`}>
+                    <button type="button" className={`${styles.voteButton} ${styles.upVote}`} disabled>
                         <FaArrowAltCircleUp/>
                     </button>
                     <p>{score}</p>
-                    <button type="button" className={`${styles.voteButton} ${styles.downVote}`}>
+                    <button type="button" className={`${styles.voteButton} ${styles.downVote}`} disabled>
                         <FaArrowAltCircleDown/>
                     </button>
                 </div>
