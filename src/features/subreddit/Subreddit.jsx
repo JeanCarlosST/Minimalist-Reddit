@@ -37,10 +37,7 @@ const Subreddit = () => {
             </div>
             <div className={styles.subreddit}>
                 <PostsList subreddit={name}/>
-                <AboutSubreddit 
-                    data={about} 
-                    isFetching={isFetching}
-                    error={error}/>
+                <AboutSubreddit name={about.display_name}/>
             </div>
         </>
     )

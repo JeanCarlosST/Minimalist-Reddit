@@ -82,6 +82,7 @@ export const redditApi = createApi({
         getPopularSubreddits: builder.query({ query: () => `subreddits/popular${jsonExtension}`}),
         getSubredditPosts: builder.query({ query: (subreddit) => `r/${subreddit}${jsonExtension}`}),
         getSubredditAbout: builder.query({ query: (subreddit) => `r/${subreddit}/about${jsonExtension}`}),
+        getPostWithComments: builder.query({ query: ({ subreddit, postId }) => `r/${subreddit}/comments/${postId}${jsonExtension}`}),
     })
 });
 
@@ -89,5 +90,6 @@ export const {
     useGetMainContentQuery,
     useGetPopularSubredditsQuery,
     useGetSubredditPostsQuery,
-    useGetSubredditAboutQuery
+    useGetSubredditAboutQuery,
+    useGetPostWithCommentsQuery,
 } = redditApi;

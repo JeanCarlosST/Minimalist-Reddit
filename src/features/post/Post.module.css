@@ -1,0 +1,8 @@
+.post {
+    display: flex;
+    justify-content: center;
+}
+
+.postItemContainer {
+    width: 50%;
+}
