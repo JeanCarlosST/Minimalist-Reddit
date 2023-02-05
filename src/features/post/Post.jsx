@@ -20,7 +20,7 @@ const Post = () => {
             <div className={styles.postItemContainer}>
                 <PostItem post={post} comments={comments} isCurrentPost={true} isFetching={isFetching}/>
             </div>
-            <AboutSubreddit name={post.data?.subreddit} isInPost={true}/>
+            { !isFetching && <AboutSubreddit name={post.data?.subreddit} isInPost={true}/>}
         </div>
     );
 }

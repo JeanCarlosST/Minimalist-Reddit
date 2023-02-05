@@ -15,7 +15,7 @@ const Subreddit = () => {
     if(error)
         return <p>{error.message}</p>
 
-    const about = data.data;
+    const about = data?.data ?? {};
     const title = about.title;
     const subreddit = about.display_name_prefixed;
     let image = about.icon_img;
@@ -36,7 +36,7 @@ const Subreddit = () => {
             </div>
             <div className={styles.subreddit}>
                 <PostsList subreddit={name}/>
-                <AboutSubreddit name={about.display_name}/>
+                { !isFetching && <AboutSubreddit name={about.display_name}/>}
             </div>
         </>
     )
