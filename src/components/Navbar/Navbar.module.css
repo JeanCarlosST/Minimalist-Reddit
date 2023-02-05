@@ -46,3 +46,10 @@
     cursor: pointer;
     background-color: #600000;
 }  
+
+
+@media only screen and (max-width: 500px) {
+    .name {
+        display: none;
+    }
+}

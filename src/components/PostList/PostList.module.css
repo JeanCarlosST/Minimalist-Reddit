@@ -2,3 +2,23 @@
 .postList {
     width: 50%;
 }
+
+@media only screen and (max-width: 1200px) {
+    .postList {
+        width: 65%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .postList {
+        width: 80%;
+        margin: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .postList {
+        width: 100%;
+        margin: 0 10px;
+    }
+}

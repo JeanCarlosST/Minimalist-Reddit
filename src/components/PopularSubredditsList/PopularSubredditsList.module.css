@@ -10,3 +10,9 @@
 .subredditsList h3 {
     margin-bottom: 10px;
 }
+
+@media only screen and (max-width: 1000px) {
+    .subredditsList {
+        display: none;
+    }
+}

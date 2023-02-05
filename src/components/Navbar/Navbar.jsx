@@ -11,7 +11,7 @@ const Navbar = () => {
         <nav className={styles.navbar}>
             <Link to={"/"} className={styles.homelink}>
                 <img src={logo}/>
-                <p>Minimalist <span>Reddit</span></p>
+                <p className={styles.name}>Minimalist <span>Reddit</span></p>
             </Link>
             <SearchBar/>
             <div></div>
