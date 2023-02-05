@@ -55,7 +55,7 @@ const PostItem = ({ post, comments, isCurrentPost }) => {
                     </div>
                     <div className={styles.postInfo}>
                         <p>
-                            <Link to={subreddit} className={styles.subredditLink}>{subreddit}</Link>
+                            <Link to={`/${subreddit}`} className={styles.subredditLink}>{subreddit}</Link>
                             {" · "} 
                             <span className={styles.postedBy}>Posted by {postedBy}</span>
                         </p>
