@@ -18,8 +18,15 @@ const PostsList = ({ subreddit }) => {
     isFetching = query.isFetching;
     error = query.error
     
-    if(isFetching)
-        return <p>Loading...</p>
+    if(isFetching) {
+        return (
+            <div className={styles.postList}>
+                {[...Array(10)].map((post, i) => 
+                    <PostItem post={{}} key={i} isFetching={isFetching}/>
+                    )}
+            </div>
+        )
+    }
     
     if(error)
         return <p>{error.message}</p>

@@ -6,9 +6,17 @@ import styles from './PopularSubredditsList.module.css';
 const PopularSubredditsList = () => {
     const { data, isFetching, error } = useGetPopularSubredditsQuery();
     
-    if(isFetching)
-        return <p>Loading...</p>
-    
+    if(isFetching) {
+        return (
+            <div className={styles.subredditsList}>
+                <h3>Popular Subreddits</h3>
+                {[...Array(10)].map((subreddit, i) => 
+                    <SubredditLink subreddit={{}} key={i}/>
+                )}
+            </div>
+        )
+    }
+
     if(error)
         return <p>{error.message}</p>
 

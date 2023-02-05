@@ -9,21 +9,18 @@ const Post = () => {
     const { subreddit, postId } = useParams();
     const { data, isFetching, error } = useGetPostWithCommentsQuery({subreddit, postId});
 
-    if(isFetching)
-        return <p>Loading...</p>
-    
     if(error)
         return <p>{error.message}</p>
 
-    const post = data[0].data.children[0];
-    const comments = data[1].data.children;
+    const post = !isFetching ? data[0].data.children[0] : {};
+    const comments = !isFetching ? data[1].data.children : {};
 
     return (
         <div className={styles.post}>
             <div className={styles.postItemContainer}>
-                <PostItem post={post} comments={comments} isCurrentPost={true}/>
+                <PostItem post={post} comments={comments} isCurrentPost={true} isFetching={isFetching}/>
             </div>
-            <AboutSubreddit name={post.data.subreddit} isInPost={true}/>
+            <AboutSubreddit name={post.data?.subreddit} isInPost={true}/>
         </div>
     );
 }

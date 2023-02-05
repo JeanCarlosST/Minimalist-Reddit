@@ -1,11 +1,13 @@
 import React from "react";
 import moment from "moment";
 import { formatNumber } from "../../utils";
-import styles from './PostResultItem.module.css';
 import { FaRegComments } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import styles from './PostResultItem.module.css';
 
-const PostResultItem = ({post}) => {
+const PostResultItem = ({post, isFetching}) => {
     const title = post.title;
     const upvotes = formatNumber(post.ups);
     const subreddit = post.subreddit_name_prefixed;
@@ -24,7 +26,9 @@ const PostResultItem = ({post}) => {
     return (
         <div className={styles.postResultItem} onClick={handleClick}>
             <div className={styles.itemHeader}>
-                <Link to={subreddit} className={styles.subredditLink}>{subreddit}</Link>            
+                <Link to={subreddit || ""} className={styles.subredditLink}>
+                    {!isFetching ? subreddit : <Skeleton />}
+                </Link>            
             </div>
             <div className={styles.itemBody}>
                 <h4>{title}</h4>
@@ -32,20 +36,24 @@ const PostResultItem = ({post}) => {
             </div>
             <div className={styles.itemFooter}>
                 <p>
-                    <span className={styles.postedBy}>
-                        Posted by {postedBy}
-                    </span>
-                    {" · "}
-                    <span className={styles.timeElapsed}>
-                        {timeElapsed}
-                    </span>
+                    { !isFetching ?
+                        <>
+                            <span className={styles.postedBy}>
+                                Posted by {postedBy}
+                            </span>
+                            {" · "}
+                            <span className={styles.timeElapsed}>
+                                {timeElapsed}
+                            </span>
+                        </> : <Skeleton width={100}/>
+                    }
                 </p>
                 <p>
-                    {upvotes} upvotes
+                    {!isFetching ? `${upvotes} upvotes` : <Skeleton width={50}/>} 
                 </p>
                 <p className={styles.numComments}>
                     <FaRegComments/>
-                    <span>{numComments}</span>
+                    <span>{ !isFetching ? numComments : <Skeleton width={30}/>}</span>
                 </p>
             </div>
         </div>

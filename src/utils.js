@@ -3,7 +3,7 @@ export function formatNumber(score) {
     return formatter.format(score);
 }
 
-export function isHexLight(color) {
+export function isHexLight(color = "") {
     color = color === "" ? "#FFFFFF" : color; 
     const hex = color.replace('#', '');
     const c_r = parseInt(hex.substring(0, 0 + 2), 16);

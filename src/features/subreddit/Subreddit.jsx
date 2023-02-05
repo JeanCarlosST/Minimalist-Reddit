@@ -5,14 +5,13 @@ import PostsList from "../../components/PostList/PostsList";
 import { useGetSubredditAboutQuery } from "../../services/redditApi";
 import DefaultIcon from '../../assets/svgs/default-subreddit-icon.svg'
 import styles from './Subreddit.module.css';
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const Subreddit = () => {
     const { name } = useParams();
     const { data, isFetching, error } = useGetSubredditAboutQuery(name);
 
-    if(isFetching)
-        return <p>Loading...</p>
-    
     if(error)
         return <p>{error.message}</p>
 
@@ -28,10 +27,10 @@ const Subreddit = () => {
         <>
             <div className={styles.subredditBanner}>
                 <div>
-                    <img src={image} className={styles.subredditIcon}/>
+                    { !isFetching ? <img src={image} className={styles.subredditIcon}/> : <Skeleton width={50} height={50} borderRadius={25}/> }
                     <div className={styles.subredditNames}>
-                        <h1>{title}</h1>
-                        <h2>{subreddit}</h2>
+                        <h1>{ !isFetching ? title : <Skeleton width={100}/>}</h1>
+                        <h2>{ !isFetching ? subreddit : <Skeleton height={20} width={50}/>}</h2>
                     </div>
                 </div>
             </div>

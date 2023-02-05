@@ -7,7 +7,7 @@ const SearchBar = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
     const termParam = searchParams.get("term");
-    const [ term, setTerm ] = useState(termParam);
+    const [ term, setTerm ] = useState(termParam ?? "");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,7 +20,8 @@ const SearchBar = () => {
     };
 
     const handleChange = ({target}) => {
-        setTerm(target.value);
+        if(target.value)
+            setTerm(target.value);
     }
 
     return (

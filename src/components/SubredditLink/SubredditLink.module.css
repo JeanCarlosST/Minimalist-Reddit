@@ -25,6 +25,9 @@
 .subredditLink img {
     width: 5vw;
     max-width: 40px;
-    margin-right: 10px;
     border-radius: 50%;
+}
+
+.subredditLink span {
+    margin-left: 10px;
 }

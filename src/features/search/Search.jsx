@@ -14,14 +14,11 @@ const Search = () => {
     const [type, setType] = useState(typeParam);
     const { data, isFetching, error } = useGetSearchQuery({term, type})
     
-    if(isFetching)
-        return <p>Loading...</p>
-    
     if(error) {
         return <p>{error.error}</p>
     }
 
-    const results = data.data.children;
+    const results = data?.data.children;
     const showPosts = type === "link";
     const postsButtonStyle = showPosts ? styles.selected : "";
     const subredditsButtonStyle = !showPosts ? styles.selected : "";
@@ -68,8 +65,8 @@ const Search = () => {
                 </button>
             </div>
             <div className={styles.searchResults}>
-                {showPosts && <PostResults results={results}/>}
-                {!showPosts && <SubredditResults results={results}/>}
+                {showPosts && <PostResults results={results} isFetching={isFetching}/>}
+                {!showPosts && <SubredditResults results={results} isFetching={isFetching}/>}
             </div>
         </div>
     )

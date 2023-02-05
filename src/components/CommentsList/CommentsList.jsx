@@ -2,7 +2,18 @@ import React from "react";
 import Comment from "../Comment/Comment";
 import styles from './CommentsList.module.css';
 
-const CommentsList = ({ comments }) => {
+const CommentsList = ({ comments, isFetching }) => {
+
+    if(isFetching) 
+        return (
+            <>
+                <hr/>
+                {[...Array(10)].map((comment, i) => 
+                    <Comment comment={{}} isFetching={isFetching} key={i}/>
+                )}
+            </>
+        )
+
     return (
         <>
             <hr/>

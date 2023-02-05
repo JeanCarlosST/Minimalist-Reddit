@@ -34,8 +34,11 @@
 .subredditButton img {
     width: 4vw;
     max-width: 40px;
-    margin-right: 10px;
     border-radius: 50%;
+}
+
+.subredditButton span {
+    margin-left: 10px;
 }
 
 .dateCreated {
