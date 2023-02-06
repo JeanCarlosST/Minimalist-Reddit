@@ -2,7 +2,8 @@
 A [React](https://reactjs.org/) app that uses the public [Reddit API](https://github.com/reddit-archive/reddit/wiki/API) to see its content with a minimalist and simple design
 
 ## Preview
-![](/media/Preview.mp4)
+
+https://user-images.githubusercontent.com/69774657/217113645-3a7de1e6-82f5-4b66-bcfe-33f76ec91dac.mp4
 
 ## Description
 
