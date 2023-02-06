@@ -1,6 +1,9 @@
 # Minimalist Reddit
 A [React](https://reactjs.org/) app that uses the public [Reddit API](https://github.com/reddit-archive/reddit/wiki/API) to see its content with a minimalist and simple design
 
+## Preview
+![](/media/Preview.mp4)
+
 ## Description
 
 As simple as it sounds. This React project works with the public [Reddit API](https://github.com/reddit-archive/reddit/wiki/API) to serve as a simplified version where you can:
